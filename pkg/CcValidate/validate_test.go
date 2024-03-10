@@ -14,6 +14,11 @@ func TestCCNumberIsGood(t *testing.T) {
 			"",
 		},
 		{
+			"Should be valid cc number without dashes",
+			"4234567891234567",
+			"",
+		},
+		{
 			"Should fail because bad chars",
 			"4234_5678-9123-4567",
 			InvalidCharsMessage,
