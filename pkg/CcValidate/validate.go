@@ -17,11 +17,16 @@ type CCNumber struct {
 	ErrorMsg string
 }
 
-func NewCCNumber(number string) CCNumber {
-	return CCNumber{
+// Validate should check that a credit card number being used passes all the requirements,
+// should only be number chars, and potentially have dashes split in groups of 4.
+func Validate(number string) CCNumber {
+	cc := CCNumber{
 		number: number,
 	}
+	cc.validate()
+	return cc
 }
+
 func (c *CCNumber) validStartingChar() bool {
 	first := string(c.number[0])
 	switch true {
@@ -80,9 +85,7 @@ func (c *CCNumber) dashCheck() {
 	}
 }
 
-// Validate should check that a credit card number being used passes all the requirements,
-// should only be number chars, and potentially have dashes split in groups of 4.
-func (c *CCNumber) Validate() {
+func (c *CCNumber) validate() {
 	if !c.validStartingChar() {
 		return
 	}

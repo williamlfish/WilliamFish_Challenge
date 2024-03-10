@@ -42,8 +42,7 @@ func TestCCNumberIsGood(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			cc := NewCCNumber(tt.number)
-			cc.Validate()
+			cc := Validate(tt.number)
 			if cc.ErrorMsg != tt.expectedError {
 				t.Errorf("got %s, and expecting %s on test: %s", cc.ErrorMsg, tt.expectedError, tt.name)
 			}

@@ -20,8 +20,7 @@ func validateCCNumbers(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err})
 		return
 	}
-	ccNumbers := CcValidate.NewCCNumber(cc.CCNumber)
-	ccNumbers.Validate()
+	ccNumbers := CcValidate.Validate(cc.CCNumber)
 	if ccNumbers.ErrorMsg != "" {
 		c.JSON(http.StatusBadRequest, gin.H{"valid": false, "error": ccNumbers.ErrorMsg})
 		return
