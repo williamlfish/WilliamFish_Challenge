@@ -24,6 +24,11 @@ func TestCCNumberIsGood(t *testing.T) {
 			InvalidCharsMessage,
 		},
 		{
+			"Should fail because bad chars letters",
+			"423j-5678-9123-4567",
+			InvalidCharsMessage,
+		},
+		{
 			"Should fail because bad format",
 			"42345678-9123-4567",
 			InvalidFormatting,
