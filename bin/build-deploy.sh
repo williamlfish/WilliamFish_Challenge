@@ -27,7 +27,7 @@ fi
 envsubst < infra/deployment.yaml | kubectl apply -n $NS -f -
 
 #IF WE HAD SECRETS TO CREATE...
-#kubectl create secret generic pxd-sessions \
+#kubectl create secret generic  comcast-challenge \
 #  --save-config \
 #  --from-env-file=.prod.env \
 #  --dry-run=client -o yaml | kubectl apply -n $NS -f -
